@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="pagenav.js"></script>
+</head>
+
+<body>
+    <div class="pagenav">
+        <a href="#" class="first" data-action="first">第一页</a> <a href="#" class="previous" data-action="previous">前一页</a> <input type="text" readonly="readonly"> <a href="#" class="next ebaiyin-mall icon-table-next" data-action="next">后一页</a> <a href="#"
+            class="last ebaiyin-mall icon-index-last" data-action="last">最后一页</a>
+    </div>
+</body>
+<script>
+    pagenavPro(45);
+
+    function pagenavPro(page) {
+        $(".pagenav").jqPagination({
+            max_page: page,
+            paged: function(page) {
+                // post
+                console.log(page);
+                if (page == 4) {
+                    $(".pagenav-mall-index").jqPagination('destroy'); //销毁分页器
+                    //$(".pagenav-mall-index").jqPagination({
+                    //    max_page: 67
+                    //});
+                    pagenavPro(67)
+                }
+                //if (page == 4){
+                //    $(".pagenav-mall-index").jqPagination('option', 'max_page', 47);
+                //}               
+            }
+        });
+    }
+</script>
+
+</html>
